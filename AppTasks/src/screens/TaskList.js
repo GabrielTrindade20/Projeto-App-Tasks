@@ -3,19 +3,19 @@ import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 
 import todayImage from '../../assets/imgs/today.jpg';
 import moment from 'moment'
+import 'moment/locale/pt-br'
 
 
 export default class TaskList extends Component {
     render() {
-        const today = moment().format('MMMM Do YYYY, h:mm:ss a');/*moment().locale('pt-br').format('ddd, D [de] MMMM')*/
+        const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
         
         return (
             <View style={styles.container}>
                 <ImageBackground source={todayImage} style={styles.background}>
-                    <View>
+                    <View style={styles.titleBar}>
                         <Text>Hoje</Text>
-                        <Text>{today}</Text>
-                        
+                        <Text>{today}</Text>                        
                     </View>
                 </ImageBackground>
 
@@ -37,5 +37,10 @@ const styles = StyleSheet.create({
     },
     background: {
         flex: 3,
-    }
+    },
+    titleBar: {
+        flex: 1,
+        justifyContent: 'flex-end',
+    },
+    
 })
