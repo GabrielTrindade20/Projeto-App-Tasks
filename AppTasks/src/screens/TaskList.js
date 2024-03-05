@@ -1,14 +1,13 @@
 import React, { Component } from "react";
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 
-import todayImage from '../../assets/imgs/today.jpg'
+import todayImage from '../../assets/imgs/today.jpg';
 import moment from 'moment'
-import 'moment/locale/pt-br'
 
 
 export default class TaskList extends Component {
     render() {
-        const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
+        const today = moment().format('MMMM Do YYYY, h:mm:ss a');/*moment().locale('pt-br').format('ddd, D [de] MMMM')*/
         
         return (
             <View style={styles.container}>
@@ -16,6 +15,7 @@ export default class TaskList extends Component {
                     <View>
                         <Text>Hoje</Text>
                         <Text>{today}</Text>
+                        
                     </View>
                 </ImageBackground>
 
